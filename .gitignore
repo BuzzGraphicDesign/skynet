@@ -31,10 +31,5 @@ phpcs.xml.dist
 .phpcs.xml
 .phpcs-cache
 
-../../Adobe/
-../
-../../Backups/
-../../Buzz/
-../../Vagrant/
-../../Wargaming.net Games
-	../../chipex_NewDesign/
+sftp-config.json
+

@@ -19,6 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php //echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
 
+
 	<div class="entry-content">
 
 		<?php the_content(); ?>
@@ -36,8 +37,9 @@ defined( 'ABSPATH' ) || exit;
 
 	<footer class="entry-footer">
 
-		<?php //if(current_user_can('administrator')) { edit_post_link( __( 'Edit', 'understrap' ), '<span class="edit-link">', '</span>' ); } ?>
 
+		<?php //if(current_user_can('administrator')) { edit_post_link( __( 'Edit', 'understrap' ), '<span class="edit-link">', '</span>' ); } ?>
+      
 	</footer><!-- .entry-footer -->
 
 </article><!-- #post-## -->

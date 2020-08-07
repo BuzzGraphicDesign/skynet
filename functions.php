@@ -28,11 +28,13 @@ $understrap_includes = array(
 	'/acf-blocks.php',						// Register ACF blocks
 	'/skynet-helpers.php',					// Helper Functions
 
+
 );
 
 foreach ( $understrap_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
+
 
 $acf_core_blocks = array(
 	'/acf-fields-core.php',	// load local fields	
