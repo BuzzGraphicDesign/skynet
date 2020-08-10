@@ -58,7 +58,7 @@ function build_local_field_group($type) {
 }
 
 
-function add_local_field($key,$label,$name,$type,$parent,$required=false,$choices=[]) {
+function add_local_field($key,$label,$name,$type,$parent,$required=false,$choices=[],$default=false) {
 
 	// Init the basic array
 	$props_array = [
@@ -69,7 +69,7 @@ function add_local_field($key,$label,$name,$type,$parent,$required=false,$choice
 	    'parent'       => $parent,
 	    'instructions' => '',
 	    'required'     => $required,
-	    'default_value'	   => 1
+	    'default_value'	   => $default
 	];
 
 	if ($type === 'radio') {
@@ -89,7 +89,7 @@ function add_local_field($key,$label,$name,$type,$parent,$required=false,$choice
 	if ($type === 'repeater') {		
 		$props_array['sub_fields'] = $choices;
 		$props_array['layout'] = 'block';
-
+		
 	}
 
 	//$repeater_fields = make_local_field_repeater($props_array);
@@ -98,8 +98,6 @@ function add_local_field($key,$label,$name,$type,$parent,$required=false,$choice
 	acf_add_local_field( $props_array );
 
 }
-
-
 
 
 
@@ -116,7 +114,14 @@ function add_local_field_repeater() {
 			'type' => 'repeater',
 			'instructions' => '',
 			'required' => 0,
-			'conditional_logic' => 0,
+			'conditional_logic' => 
+				array(
+					array(
+						'field' 	=> 'hero-bg',
+						'operator' 	=> '==',
+						'value' 	=> ''
+					)
+				),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',

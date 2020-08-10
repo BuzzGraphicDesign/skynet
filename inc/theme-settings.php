@@ -35,8 +35,8 @@ if ( ! function_exists( 'understrap_get_theme_default_settings' ) ) {
 			'understrap_posts_index_style' => 'default',   // Latest blog posts style.
 			'understrap_sidebar_position'  => 'right',     // Sidebar position.
 			'understrap_container_type'    => 'container', // Container width.
-			'text-domain'				   => 'skynet'
-			
+			'text-domain'				   => 'skynet',
+			//'bg_colors'						=> 'fgdgf'
 		);
 
 		/**
@@ -47,5 +47,24 @@ if ( ! function_exists( 'understrap_get_theme_default_settings' ) ) {
 		return apply_filters( 'understrap_theme_default_settings', $defaults );
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

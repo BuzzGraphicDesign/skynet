@@ -1,4 +1,74 @@
-// This is an empty scss file for your custom styles - Please add your super duper awesome mega design styles here
+
+#page-wrapper {
+	padding: 0;
+}
+
+
+
+
+
+// Hero Block
+.hero-block {
+	* {
+		height: 100%;
+	}
+	.row {
+		
+		.col-12 {
+
+			.hero-block-inner {
+
+				.hero-bg {
+					
+
+					.hero-bg-title {											
+
+						> * {
+							width: 100%;
+							height: 100%;
+							display: flex;
+							align-items: center;
+							
+						}
+
+					}
+				}
+
+				.hero-img {
+					width: 100%;
+
+					.hero-img-title {
+						> * {
+							width: 100%;
+							height: 100%;
+							display: flex;
+							align-items: center;
+							
+						}
+					}
+
+				}
+
+				.hero-img-slider-container {
+					.hero-slider {
+						.hero-slider-item {
+							.container {								
+								.hero-slider-item-title {
+									> * {
+									display: flex;
+									align-items: center;
+									}
+								}
+							}
+						}
+					}
+				}
+
+			}
+			
+		}
+	}
+}
 
 // Text Block
 .text-block-container {
@@ -11,6 +81,7 @@
 	}
 }
 
+// Form Block
 .form-block-container {
 	.row {
 		.col-12 {
@@ -33,22 +104,21 @@
 	}
 }
 
+// Image Block
 .image-block-container {
 	.row {
 		.col-12 {
 			.image-container {
 				min-height: 300px;
 				position: relative;
+				padding: 80px 40px;
 			}
-			.image-block-content {
-				position: absolute;
-				top: 0;
-				left: 0;
+			.image-block-content {				
 				width: 100%;
 				height: 100%;
 				display: flex;
-				align-items: center;
-				justify-content: center;
+				align-items: center;				
+				
 			}
 			.image-block-overlay {
 				position: absolute;
@@ -57,9 +127,8 @@
 				width: 100%;
 				height: 100%;
 				background: black;
-				opacity: .5;
+				opacity: .5;				
 			}
 		}
 	}
 }
-

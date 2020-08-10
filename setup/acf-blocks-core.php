@@ -7,7 +7,7 @@ require('acf-helpers.php');
 
 * @Params Field Group Name
 
-* @Params Local Fields: $key,$label,$name,$type,$parent,$required=false,$choices=[]
+* @Params Local Fields: $key,$label,$name,$type,$parent,$required=false,$choices=[],$deafult=false
 
 */
 
@@ -34,7 +34,9 @@ add_action('acf/init', 'header_block_core_register');
 build_local_field_group('hero');
 
 // Create Local Fields
-add_local_field('hero-bg', 'Background', 'hero_bg', 'select', 'hero', false, $bg_choices);
+add_local_field('hero-bg', 'Use Background', 'hero_bg', 'select', 'hero', false, $bg_choices);
+
+add_local_field('hero-bg-title', 'Hero Title', 'hero_bg_title', 'wysiwyg', 'hero');
 
 $sub_fields = [
     [
@@ -47,10 +49,11 @@ $sub_fields = [
         'key' => 'hero-image-title',
         'label' => 'Hero Title',
         'name' => 'hero_image_title',
-        'type' => 'text'
+        'type' => 'wysiwyg'
     ]
 ];
-add_local_field('hero-img', 'Image', 'hero_img', 'repeater', 'hero', false, $sub_fields);
+add_local_field('hero-repeater', 'Use Image', 'hero_repeater', 'repeater', 'hero', false, $sub_fields);
+
 
 // Register Text Block
 function text_block_core_register() {
@@ -147,17 +150,9 @@ build_local_field_group('image-block');
 // Add Local Fields
 add_local_field('full-width-img-block', 'Full Width', 'full_width_img_block', 'true_false', 'image-block');
 
+add_local_field('image-block-overlay', 'Use Overlay', 'image_block_overlay', 'true_false', 'image-block');
+
 add_local_field('image-img-block', 'Add Image', 'image_img_block', 'image', 'image-block');
-
-// Radio choices array
-$img_block_cont_align = [
-    'left'      => 'Left',
-    'center'    => 'Center',
-    'right'     => 'Right'
-];
-add_local_field('content-alignment-img-block', 'Content Alignment', 'content_alignment_img_block', 'radio', 'image-block', false, $img_block_cont_align);
-
-
 
 add_local_field('content-image-block', 'Content', 'content_image_block', 'wysiwyg', 'image-block');
 

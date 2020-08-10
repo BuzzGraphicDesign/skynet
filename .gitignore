@@ -10,6 +10,8 @@ dist
 
 dist-product
 
+/css/*
+
 npm-debug.log
 
 /vendor/

@@ -2,11 +2,8 @@
 
 $img = get_field('image_img_block');
 $content = get_field('content_image_block');
-$content_alignment = get_field('content_alignment_img_block');
+$is_overlay = get_field('image_block_overlay');
 
-
-// Future options
-$is_overlay = false;
 //var_dump($content_alignment);exit;
 ?>
 
@@ -14,14 +11,14 @@ $is_overlay = false;
 	<div class="row">
 		<div class="col-12">
 			<!-- Image loaded as Background -->
-			<div class="image-block-inner image-container" style="background: url('<?php echo $img["url"];?>'); background-repeat: no-repeat;background-size: cover; background-position: center;"></div>
-			
-			<!-- Content -->
-			<div class="image-block-content">
-				<div class="content-inner">
-					<?php echo $content; ?>						
+			<div class="image-block-inner image-container" style="background: url('<?php echo $img["url"];?>'); background-repeat: no-repeat;background-size: cover; background-position: center;">
+				<!-- Content -->
+				<div class="image-block-content">
+					<div class="content-inner">
+						<?php echo $content; ?>						
+					</div>
 				</div>
-			</div>
+			</div>			
 
 			<!-- Overlay -->
 			<?php if($is_overlay) : ?>

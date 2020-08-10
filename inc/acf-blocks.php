@@ -61,6 +61,24 @@ acf_add_local_field_group(array(
     ) );
 
         acf_add_local_field( array(
+            'key'          => 'theme-options-tab-style-hero-height',
+            'label'        => 'Hero Height(px)',
+            'name'         => 'hero_height',
+            'type'         => 'text',
+            'parent'       => 'options-page',
+            'instructions' => '',
+            'required'     => '',
+        ) );
+        acf_add_local_field( array(
+            'key'          => 'theme-options-tab-style-container-width',
+            'label'        => 'Container Width(px)',
+            'name'         => 'container_width',
+            'type'         => 'text',
+            'parent'       => 'options-page',
+            'instructions' => '',
+            'required'     => '',
+        ) );
+        acf_add_local_field( array(
             'key'          => 'theme-options-tab-style-primary-color',
             'label'        => 'Primary Colour',
             'name'         => 'style_primary_color',
