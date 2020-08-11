@@ -16,6 +16,7 @@ $(document).ready(function() {
 		draggable: false,
 		swipe: false,
 		dots: true,
+		fade: true
 	})
 })
 	

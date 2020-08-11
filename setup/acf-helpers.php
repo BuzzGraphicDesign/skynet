@@ -8,10 +8,15 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$bg_choices['choices'] = [
+$bg_choices = [
     ''		=> 'None',
     '#eee' 	=> 'Primary BG Color',
     'green' => 'Secondary BG Color',
+];
+
+$content_image_radio_choices = [
+    'content-left' => 'Content left Image right',
+    'content-right' => 'Content right Image left'
 ];
 
 function text_alignment_flex($align_to) {

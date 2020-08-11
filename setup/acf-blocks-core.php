@@ -1,15 +1,33 @@
 <?php
-require('acf-helpers.php');
-// These are the Core blocks & local fields for blocks
-
-
 /**
+
+* @Core blocks and Local fields
 
 * @Params Field Group Name
 
 * @Params Local Fields: $key,$label,$name,$type,$parent,$required=false,$choices=[],$deafult=false
 
 */
+require('acf-helpers.php');
+
+// Initialise Register Block Functions
+function run() {
+
+    $auto_register_blocks = [
+        'header_block_core_register',
+        'text_block_core_register',
+        'form_block_core_register',
+        'image_block_core_register',
+        'content_image_block_core_register'
+    ];
+
+    foreach ($auto_register_blocks as $function_name) {
+        add_action('acf/init', $function_name);
+    }
+}
+
+run();
+
 
 // Register Hero Header
 function header_block_core_register() {
@@ -28,8 +46,6 @@ function header_block_core_register() {
         ));
     }
 }
-add_action('acf/init', 'header_block_core_register');
-
 // Create a field Group for the Block
 build_local_field_group('hero');
 
@@ -84,14 +100,11 @@ function text_block_core_register() {
         ));
     }
 }
-add_action('acf/init', 'text_block_core_register');
-
 // Create a field Group for the Block
 build_local_field_group('text-block');
 
 
-
-// add each new field below
+// Register new Local Fields
 add_local_field('full-width-text-block', 'Full Width', 'full_width_text_block', 'true_false', 'text-block');
 
 // Select field
@@ -120,8 +133,6 @@ function form_block_core_register() {
         ));
     }
 }
-add_action('acf/init', 'form_block_core_register');
-
 // Register Form Block Field Group
 build_local_field_group('form-block');
 
@@ -154,8 +165,6 @@ function image_block_core_register() {
         ));
     }
 }
-add_action('acf/init', 'image_block_core_register');
-
 //Register Image Block Field Group
 build_local_field_group('image-block');
 
@@ -177,21 +186,27 @@ function content_image_block_core_register() {
 
         // register a testimonial block.
         acf_register_block_type(array(
-            'name'              => 'content-image',
+            'name'              => 'content-image-block',
             'title'             => __('Content Image'),
             'description'       => __('A content image block.'),
             'render_template'   => 'acf-templates/content-image-block.php',
             //'category'          => 'common-blocks',
             'icon'              => 'admin-comments',
-            'keywords'          => array( 'text, image' ),
+            'keywords'          => array( 'text' ),
         ));
     }
 }
-add_action('acf/init', 'content_image_block_core_register');
+//Register Field Group
+build_local_field_group('content-image-block');
 
+// Register Local Fields
+add_local_field('content-img-block-full-width', 'Full Width', 'content_img_block_full_width','true_false', 'content-image-block');
 
+add_local_field('content-image-block-alignment', 'Align Items', 'content_image_block_alignment', 'radio', 'content-image-block', false, $content_image_radio_choices);
 
+add_local_field('content-image-block-image', 'Image', 'content_image_block_image', 'image', 'content-image-block');
 
+add_local_field('content-image-block-content', 'Content', 'content_image_block_content', 'wysiwyg', 'content-image-block');
 
 
 
