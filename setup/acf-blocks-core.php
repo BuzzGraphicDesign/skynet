@@ -50,6 +50,18 @@ $sub_fields = [
         'label' => 'Hero Title',
         'name' => 'hero_image_title',
         'type' => 'wysiwyg'
+    ],
+    [
+        'key' => 'hero-image-text-align',
+        'label' => 'Text Alignment',
+        'name' => 'hero_image_text_align',
+        'type' => 'radio',
+        'choices'   => [
+            'left'  => 'Left',
+            'center'  => 'Center',
+            'right'  => 'Right',
+        ],
+        'layout' => 'horizontal'
     ]
 ];
 add_local_field('hero-repeater', 'Use Image', 'hero_repeater', 'repeater', 'hero', false, $sub_fields);

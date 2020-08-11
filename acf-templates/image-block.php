@@ -4,7 +4,9 @@ $img = get_field('image_img_block');
 $content = get_field('content_image_block');
 $is_overlay = get_field('image_block_overlay');
 
-//var_dump($content_alignment);exit;
+$text_domain = get_theme_mod('text-domain');
+
+//var_dump(get_theme_mod('bg_colors'));exit;
 ?>
 
 <div class="image-block-container image-block">
@@ -15,7 +17,10 @@ $is_overlay = get_field('image_block_overlay');
 				<!-- Content -->
 				<div class="image-block-content">
 					<div class="content-inner">
-						<?php echo $content; ?>						
+						<div class="container">
+							<?php echo __($content, $text_domain); ?>
+						</div>
+						
 					</div>
 				</div>
 			</div>			

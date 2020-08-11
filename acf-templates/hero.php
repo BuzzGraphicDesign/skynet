@@ -20,6 +20,7 @@ else {
 		if ($rows_quantity === 1) {
 			$image_url = $repeater_rows[0]['hero_image_subfield']['url'];
 			$hero_img_title = $repeater_rows[0]['hero_image_title'];
+			$text_alignment = $repeater_rows[0]['hero_image_text_align'];
 		}
 
 	}
@@ -29,11 +30,12 @@ else {
 $text_domain = get_theme_mod('text-domain');
 // Hero Height from Options page
 $hero_height = get_field('hero_height', 'option').'px';
-$container = get_field('container_width', 'option').'px';
+//$container = get_field('container_width', 'option') !== '' ? get_field('container_width', 'option') . 'px' : 'container';
+$container = 'container';
 
 
 
-//var_dump($repeater_rows);exit;
+//var_dump(get_theme_mod('container-size'));exit;
 ?>
 
 <div class="<?php echo $text_domain; ?>-hero-block hero-block hero" style="height: <?php echo $hero_height?>">
@@ -49,12 +51,15 @@ $container = get_field('container_width', 'option').'px';
 					</div>
 				<?php elseif($rows) : ?>
 					<?php if($rows_quantity === 1) : ?>
+
+						<?php $text_alignment = text_alignment_flex($text_alignment);?>
+
 						<!-- Only one Image don't need Slider -->
 						<div class="hero-img" style="background-image: url('<?php echo $image_url; ?>'); background-position: center; background-repeat: no-repeat;
 						background-size: cover;">
 							<!-- If not aligned to center keep text in the container width -->
-							<div class="container">
-								<div class="hero-img-title">
+							<div class="<?php echo $container; ?>">
+								<div class="hero-img-title" style="justify-content: <?php echo $text_alignment; ?>">
 									<?php echo __($hero_img_title, $text_domain); ?>
 								</div>
 							</div>
@@ -63,11 +68,13 @@ $container = get_field('container_width', 'option').'px';
 						<!-- Make a Slider -->
 						<div class="hero-img-slider-container">
 							<?php foreach($repeater_rows as $row_data ) : ?>
-								
+		
+							<?php $text_alignment = text_alignment_flex($row_data['hero_image_text_align']);?>
+
 								<div class="hero-slider">
-									<div class="hero-slider-item" style="background-image: url('<?php echo $row_data['hero_image_subfield']['url']; ?>')">
-										<div class="container">
-											<div class="hero-slider-item-title">
+									<div class="hero-slider-item" style="background-image: url('<?php echo $row_data['hero_image_subfield']['url']; ?>');background-repeat: no-repeat;background-size: cover;background-position: center;">
+										<div class="<?php echo $container; ?>">
+											<div class="hero-slider-item-title" style="justify-content: <?php echo $text_alignment; ?>">
 												<?php echo __($row_data['hero_image_title'], $text_domain);?>
 											</div>
 										</div>

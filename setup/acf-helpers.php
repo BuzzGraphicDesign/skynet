@@ -14,6 +14,14 @@ $bg_choices['choices'] = [
     'green' => 'Secondary BG Color',
 ];
 
+function text_alignment_flex($align_to) {
+	
+	if ($align_to === 'right') {
+		return 'flex-end;';
+	}
 
+	return $align_to;
+
+}
 
 

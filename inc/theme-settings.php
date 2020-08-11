@@ -14,6 +14,7 @@ if ( ! function_exists( 'understrap_setup_theme_default_settings' ) ) {
 	 */
 	function understrap_setup_theme_default_settings() {
 		$defaults = understrap_get_theme_default_settings();
+		//var_dump($defaults);exit;
 		$settings = get_theme_mods();
 		foreach ( $defaults as $setting_id => $default_value ) {
 			// Check if setting is set, if not set it to its default value.
@@ -36,7 +37,7 @@ if ( ! function_exists( 'understrap_get_theme_default_settings' ) ) {
 			'understrap_sidebar_position'  => 'right',     // Sidebar position.
 			'understrap_container_type'    => 'container', // Container width.
 			'text-domain'				   => 'skynet',
-			//'bg_colors'						=> 'fgdgf'
+			'bg_colors'						=> 'fgdgf'
 		);
 
 		/**
